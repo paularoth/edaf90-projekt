@@ -8,8 +8,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { MovieComponent } from './movie/movie.component';
 import { SearchComponent } from './search/search.component';
 import { HistoryComponent } from './history/history.component';
+import { movieService } from './appmovie.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
+
+
   declarations: [
     AppComponent,
     ViewComponent,
@@ -20,9 +25,12 @@ import { HistoryComponent } from './history/history.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+
+
   ],
-  providers: [],
+  providers: [movieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
