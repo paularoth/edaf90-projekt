@@ -12,5 +12,5 @@ export class movieService {
 
     }
 
-    getMovies(): Observable<[]
-    } 
+
+} 
