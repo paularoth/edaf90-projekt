@@ -1,3 +1,18 @@
-<p>
+<div id="search-component">
+
+  <h5 id="movie-search-title">Find your next favorite move!</h5>
+
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+<!--Kommer behöva ändras, men ser inte vad saker ska heta atm...-->
+  <ul class="search-result">
+    <li *ngFor="let appmovie of movies$ | async" >
+      <a routerLink="/detail/{{appmovie.id}}">
+        {{movie.name}}
+      </a>
+    </li>
+  </ul>
+  <p>
   search works!
 </p>
+
+</div>
