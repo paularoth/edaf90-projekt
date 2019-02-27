@@ -6,8 +6,8 @@ import { MovieComponent } from './movie/movie.component';
 import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
-  { path: 'view', component: HomepageComponent },
-  { path: 'homepage', component: ViewComponent },
+  { path: 'view', component: ViewComponent },
+  { path: 'homepage', component: HomepageComponent },
   { path: 'movie', component: MovieComponent },
   { path: 'history', component: HistoryComponent }
 
