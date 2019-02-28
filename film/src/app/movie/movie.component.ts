@@ -9,6 +9,8 @@ import { movieService } from '../appmovie.service';
 })
 export class MovieComponent implements OnInit {
   movies: appmovie[];
+
+
   constructor(private movieService: movieService) { }
 
   ngOnInit() {
@@ -18,5 +20,7 @@ export class MovieComponent implements OnInit {
     this.movieService.getMovies()
       .subscribe(movie => this.movies = movie);
   }
+
+
 
 }

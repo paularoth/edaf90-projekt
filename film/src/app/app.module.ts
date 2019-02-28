@@ -10,10 +10,11 @@ import { SearchComponent } from './search/search.component';
 import { HistoryComponent } from './history/history.component';
 import { movieService } from './appmovie.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
-
 
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
 
 
   ],
