@@ -15,11 +15,15 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+
   }
   getMovies(): void {
     this.movieService.getMovies()
       .subscribe(movie => this.movies = movie);
   }
+
+
+
 
 
 
