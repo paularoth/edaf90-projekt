@@ -1,9 +1,10 @@
-{{movies.Title}}
-{{movies.Year}}
-{{movies.Number}}
-{{movies.Genre}}
-{{movies.ImdbRating}}
-{{movies.ImdbVotes}}
-{{movies.Plot}}
+<h1>{{movies.Title}}</h1>
+<h2>
+  <img width="150vw" alt="Snart kommer fin bild här" src="{{movies.Poster}}">
+</h2>
+<h2>{{movies.Year}}</h2>
 
-<img width="100vw" alt="Snart kommer fin bild här" src="{{movies.Poster}}">
+<h3>Genre :{{movies.Genre}}</h3>
+<h3>Plot :{{movies.Plot}}</h3>
+<h4> Rating at IMDB : {{movies.imdbRating}}</h4>
+<h4>Votes at IMDB: {{movies.imdbVotes}}</h4>
