@@ -12,6 +12,8 @@ import { movieService } from './appmovie.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
 
@@ -29,6 +31,7 @@ import { MatListModule } from '@angular/material';
     HttpClientModule,
     MatButtonModule,
     MatListModule,
+    MatCardModule,
 
   ],
   providers: [movieService],

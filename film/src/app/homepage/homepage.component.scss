@@ -13,4 +13,9 @@
 
       .mat-list-base .mat-list-item {
           height: 250px; 
+          background-color: #eeee;
+          
+      }
+      mat-list-item:visited, a:link {
+        color: rgb(56, 142, 185);
       }
