@@ -7,11 +7,11 @@ import { appmovie } from '../appmovie';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  movies: {};
-  movie2: {};
-  movie3: {};
-  movie4: {};
-  movie5: {};
+  movies;
+  movie2;
+  movie3;
+  movie4;
+  movie5;
 
 
   constructor(private movieService: movieService) { }

@@ -18,16 +18,16 @@ export class movieService {
     }
 
     /** GET movies from the server */
-    getMovies(): Observable<{}> {
-        return this.http.get<{}>(this.gardian)
+    getMovies(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.gardian)
             .pipe(tap(movies => console.log(movies)));
     }
 
-    getStar(): Observable<{}> {
-        return this.http.get<{}>(this.star)
+    getStar(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.star)
             .pipe(tap(movies => console.log(movies)));
     }
-    getBat(): Observable<{}> {
+    getBat(): Observable<appmovie> {
         return this.http.get<appmovie>(this.bat)
             .pipe(tap(movies => console.log(movies)));
     }
