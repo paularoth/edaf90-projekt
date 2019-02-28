@@ -14,6 +14,8 @@ export class MovieComponent implements OnInit {
   poster: {};
   plot: {};
   rating: {};
+  genre: {};
+  votes: {};
 
 
 
@@ -26,6 +28,8 @@ export class MovieComponent implements OnInit {
     this.getPoster();
     this.getPlot();
     this.getRates();
+    this.getGenre();
+    this.getVotes();
 
 
   }
@@ -53,7 +57,13 @@ export class MovieComponent implements OnInit {
     this.movieService.getMovies()
       .subscribe(movie => this.rating = movie.imdbRating);
   }
-
+  getGenre(): void {
+    this.movieService.getMovies()
+      .subscribe(movie => this.genre = movie.Genre);
+  }
+getVotes(): void {
+  this.movieService.getMovies().subscribe(movie => this.votes = movie.imdbVotes);
+}
 
 
 
