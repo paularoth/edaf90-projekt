@@ -9,18 +9,18 @@ h1 {
     padding-top: 0;
   }
   nav a {
-    padding: 5px 10px;
+    padding: 10px 20px;
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
     background-color: #eee;
-    border-radius: 4px;
+    border-radius: 5px;
   }
   nav a:visited, a:link {
     color: #607D8B;
   }
   nav a:hover {
-    color: #039be5;
+    color: #b21dd8;
     background-color: #CFD8DC;
   }
   nav a.active {

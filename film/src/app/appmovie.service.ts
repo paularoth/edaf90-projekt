@@ -18,25 +18,25 @@ export class movieService {
     }
 
     /** GET movies from the server */
-    getMovies(): Observable<appmovie[]> {
-        return this.http.get<appmovie[]>(this.gardian)
+    getMovies(): Observable<{}> {
+        return this.http.get<{}>(this.gardian)
             .pipe(tap(movies => console.log(movies)));
     }
 
-    getStar(): Observable<appmovie[]> {
-        return this.http.get<appmovie[]>(this.star)
+    getStar(): Observable<{}> {
+        return this.http.get<{}>(this.star)
             .pipe(tap(movies => console.log(movies)));
     }
-    getBat(): Observable<appmovie[]> {
-        return this.http.get<appmovie[]>(this.bat)
+    getBat(): Observable<{}> {
+        return this.http.get<appmovie>(this.bat)
             .pipe(tap(movies => console.log(movies)));
     }
-    getFight(): Observable<appmovie[]> {
-        return this.http.get<appmovie[]>(this.fight)
+    getFight(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.fight)
             .pipe(tap(movies => console.log(movies)));
     }
-    getRock(): Observable<appmovie[]> {
-        return this.http.get<appmovie[]>(this.rock)
+    getRock(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.rock)
             .pipe(tap(movies => console.log(movies)));
     }
 

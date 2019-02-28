@@ -10,7 +10,9 @@ import { SearchComponent } from './search/search.component';
 import { HistoryComponent } from './history/history.component';
 import { movieService } from './appmovie.service';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatListModule } from '@angular/material';
+
 
 
 
@@ -28,7 +30,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
+    MatButtonModule,
+    MatListModule,
+    MatCheckboxModule,
+
 
 
   ],
