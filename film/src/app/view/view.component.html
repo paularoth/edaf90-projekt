@@ -1,8 +1,8 @@
 <mat-card-title></mat-card-title>
 <mat-nav-list>
   <mat-card-title>Your playlist</mat-card-title>
-  <mat-card>
-    <img *ngFor="let movie of movies" width="150vw" src="{{movie}}">
+  <mat-card *ngFor="let movie of movies">
+    <img width="150vw" src="{{movie}}">
   </mat-card>
 </mat-nav-list>
 
