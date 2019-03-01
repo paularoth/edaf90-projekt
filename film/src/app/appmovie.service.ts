@@ -20,12 +20,12 @@ export class movieService {
     /** GET movies from the server */
     getMovies(): Observable<appmovie> {
         return this.http.get<appmovie>(this.gardian)
-            .pipe(tap(movies => console.log(movies)));
+            .pipe(tap(movies => movies));
     }
 
     getStar(): Observable<appmovie> {
         return this.http.get<appmovie>(this.star)
-            .pipe(tap(movies => console.log(movies)));
+            .pipe(tap(movies => movies));
     }
     getBat(): Observable<appmovie> {
         return this.http.get<appmovie>(this.bat)
@@ -33,11 +33,11 @@ export class movieService {
     }
     getFight(): Observable<appmovie> {
         return this.http.get<appmovie>(this.fight)
-            .pipe(tap(movies => console.log(movies)));
+            .pipe(tap(movies => movies));
     }
     getRock(): Observable<appmovie> {
         return this.http.get<appmovie>(this.rock)
-            .pipe(tap(movies => console.log(movies)));
+            .pipe(tap(movies => movies));
     }
 
 

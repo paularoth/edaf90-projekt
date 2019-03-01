@@ -23,51 +23,19 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
-    this.getTitle();
-    this.getYear();
-    this.getPoster();
-    this.getPlot();
-    this.getRates();
-    this.getGenre();
-    this.getVotes();
-
 
   }
   getMovies(): void {
     this.movieService.getMovies()
-      .subscribe(movie => this.movies = movie);
+      .subscribe(movie => {
+        this.movies = movie,
+          this.title = movie.Title,
+          this.poster = movie.Poster,
+          this.year = movie.Year,
+          this.rating = movie.imdbRating,
+          this.genre = movie.Genre,
+          this.votes = movie.imdbVotes,
+          this.plot = movie.Plot
+      });
   }
-  getTitle(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.title = movie.Title);
-  }
-  getYear(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.year = movie.Year);
-  }
-  getPoster(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.poster = movie.Poster);
-  }
-  getPlot(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.plot = movie.Plot);
-  }
-  getRates(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.rating = movie.imdbRating);
-  }
-  getGenre(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.genre = movie.Genre);
-  }
-getVotes(): void {
-  this.movieService.getMovies().subscribe(movie => this.votes = movie.imdbVotes);
-}
-
-
-
-
-
-
 }
