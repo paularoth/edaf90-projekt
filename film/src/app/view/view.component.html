@@ -1,8 +1,8 @@
 <div class="panel-heading">
   <mat-nav-list>
     <mat-card>
-      <a mat-list-item><img width="150vw" src="{{movie}}">
-        <h3> you rented: {{array}}</h3>
+      <a mat-list-item>
+        <img *ngFor="let movie of movies" width="150vw" src="{{movies}}">
       </a>
     </mat-card>
   </mat-nav-list>

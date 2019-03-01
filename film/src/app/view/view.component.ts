@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { movieService } from '../appmovie.service';
-import { appmovie } from '../appmovie';
 import { catchError, map, tap, filter, toArray, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
-
-
-
-
 
 @Component({
   selector: 'app-view',
@@ -19,26 +13,20 @@ export class ViewComponent implements OnInit {
   public data$: [];
   private id: any;
   private sub: any;
-  movie;
-  array;
+  private movies: Array<string> = [];
   constructor(private movieService: movieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.sub = this.route.paramMap.subscribe(params =>
-      this.id = params.get('imdb'))
-    this.movieService.getMovies(this.id).subscribe(resp => this.movie = resp.Poster);
+    this.saveMovie();
   }
 
 
 
   saveMovie() {
-    const hello = Observable.create(function (observer) {
-      observer.next(this.movie);
-      observer.next('World');
-
-      return hello;
-    });
-
+    this.sub = this.route.paramMap.subscribe(params =>
+      this.id = params.get('imdb'))
+    this.movieService.getMovies(this.id).subscribe(value => this.movies.push(value.Poster));
+    console.log(this.movies);
 
   }
 

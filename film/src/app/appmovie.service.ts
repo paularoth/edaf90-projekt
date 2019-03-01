@@ -27,6 +27,11 @@ export class movieService {
         return this.http.get<appmovie>(fullURL(imdbid))
             .pipe(tap(movies => movies));
     }
+    getMovie(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.gardian)
+            .pipe(tap(movies => movies));
+
+    }
     getMovie1(): Observable<appmovie> {
         return this.http.get<appmovie>(this.gardian)
             .pipe(tap(movies => movies));

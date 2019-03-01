@@ -7,14 +7,19 @@
 
       <nav> <a [routerLink]="['/movie',id1]" routerLinkActive=" active"> More about the movie</a>
 
-      </nav><a [routerLink]="['/view',{imdb:id1}]" routerLinkActive="active"> Se film</a>
+      </nav>
+      <a [routerLink]="['/view',{imdb:id1}]" routerLinkActive="active"> Se film</a>
 
     </a>
   </mat-card>
 
   <mat-card>
     <a mat-list-item><img width="150vw" src="{{movie2}}">
-      <nav> <a [routerLink]="['/movie',id2]" routerLinkActive="active"> More about the movie</a> </nav>
+      <nav> <a [routerLink]="['/movie',id2]" routerLinkActive="active"> More about the movie</a>
+
+      </nav>
+      <a [routerLink]="['/view',{imdb:id2}]" routerLinkActive="active"> Se film</a>
+
     </a>
   </mat-card>
 
