@@ -8,8 +8,8 @@ import { HistoryComponent } from './history/history.component';
 const routes: Routes = [
   { path: 'view', component: ViewComponent },
   { path: 'homepage', component: HomepageComponent },
-  { path: 'movie/:imdb', component: MovieComponent },
   { path: 'movie', component: MovieComponent },
+  { path: 'movie/:imdb', component: MovieComponent },
   { path: 'history', component: HistoryComponent }
 
 ];

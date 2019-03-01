@@ -18,8 +18,6 @@ export class movieService {
         private http: HttpClient) {
     }
 
-
-
     /** GET movies from the server */
 
     getMovies(imdbid): Observable<appmovie> {
