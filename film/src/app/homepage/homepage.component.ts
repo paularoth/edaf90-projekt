@@ -34,8 +34,8 @@ export class HomepageComponent implements OnInit {
 
   onRent(id) {
     this.messageService.add(id);
-
   }
+
 
 
   getMovie1(): void {

@@ -5,7 +5,6 @@ import { catchError, map, tap, filter, toArray, take } from 'rxjs/operators';
 import { Observable, Subscription } from 'rxjs';
 import { MessageService } from '../message.service';
 
-
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -26,7 +25,8 @@ export class ViewComponent implements OnInit {
     this.list = this.messageService.get();
 
     console.log(this.list);
-
+    this.list.map(id => this.movieService.getMovies(id).subscribe(value => this.movies.push(value.Poster)))
+    console.log(this.movies);
   }
   saveMovie() {
     this.sub = this.route.paramMap.subscribe(params =>
