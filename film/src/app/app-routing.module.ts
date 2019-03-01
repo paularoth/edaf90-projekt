@@ -7,6 +7,7 @@ import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   { path: 'view', component: ViewComponent },
+  { path: 'view/:imdb', component: ViewComponent },
   { path: 'homepage', component: HomepageComponent },
   { path: 'movie', component: MovieComponent },
   { path: 'movie/:imdb', component: MovieComponent },

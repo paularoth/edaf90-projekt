@@ -1,3 +1,10 @@
-<p>
-  Rent a movie
-</p>
+<div class="panel-heading">
+  <mat-nav-list>
+    <mat-card>
+      <a mat-list-item><img width="150vw" src="{{movie}}">
+        <h3> you rented: {{array}}</h3>
+      </a>
+    </mat-card>
+  </mat-nav-list>
+</div>
+<router-outlet></router-outlet>

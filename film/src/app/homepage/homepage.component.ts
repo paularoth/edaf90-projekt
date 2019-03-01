@@ -33,12 +33,6 @@ export class HomepageComponent implements OnInit {
   }
 
 
-  /* getMovies(): void {
-     this.movieService.getMovies()
-       .subscribe(movie => this.movies = movie.Poster);
- 
-   }*/
-
   getMovie1(): void {
     this.movieService.getMovie1()
       .subscribe(movie => {
@@ -75,7 +69,4 @@ export class HomepageComponent implements OnInit {
         this.id5 = movie.imdbID
       });
   }
-
-
-
 }

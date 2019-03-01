@@ -25,7 +25,7 @@ export class movieService {
             return 'http://www.omdbapi.com/?i=' + imdbid + '&apikey=97021fa0';
         }
         return this.http.get<appmovie>(fullURL(imdbid))
-            .pipe(tap(movies => console.log(movies)));
+            .pipe(tap(movies => movies));
     }
     getMovie1(): Observable<appmovie> {
         return this.http.get<appmovie>(this.gardian)
