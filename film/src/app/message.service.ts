@@ -13,7 +13,7 @@ export class MessageService {
         this.messages = [];
     }
 
-    get(): Observable<any> {
-        return this.messages.asObservable();
+    get() {
+        return this.messages;
     }
 }
