@@ -8,4 +8,5 @@ export class appmovie {
     Plot: string;
     Poster: string;
     imdbID: string;
+    Awards: string;
 }

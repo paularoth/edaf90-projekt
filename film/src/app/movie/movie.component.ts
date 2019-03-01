@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { appmovie } from '../appmovie';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../message.service';
+
 
 @Component({
   selector: 'app-movie',
@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
   genre: {};
   votes: {};
   imdbId: {};
-
+  awards: {};
 
 
   constructor(private movieService: movieService,
@@ -32,6 +32,9 @@ export class MovieComponent implements OnInit {
     this.sub = this.route.paramMap.subscribe(params =>
       this.id = params.get('imdb'))
     this.getMovies(this.id);
+  }
+  onRent(id) {
+    this.messageService.add(id);
   }
   getMovies(data): void {
     this.movieService.getMovies(data)
@@ -44,6 +47,8 @@ export class MovieComponent implements OnInit {
           this.genre = movie.Genre,
           this.votes = movie.imdbVotes,
           this.plot = movie.Plot
+        this.awards = movie.Awards;
+
       });
   }
 }
