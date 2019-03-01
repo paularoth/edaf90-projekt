@@ -26,7 +26,7 @@ export class MovieComponent implements OnInit {
 
   }
   getMovies(): void {
-    this.movieService.getMovies()
+    this.movieService.getMovie1()
       .subscribe(movie => {
         this.movies = movie,
           this.title = movie.Title,

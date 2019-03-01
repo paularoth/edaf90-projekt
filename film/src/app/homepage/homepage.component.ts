@@ -7,7 +7,7 @@ import { appmovie } from '../appmovie';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  movies;
+  movie1;
   movie2;
   movie3;
   movie4;
@@ -17,35 +17,34 @@ export class HomepageComponent implements OnInit {
   constructor(private movieService: movieService) { }
 
   ngOnInit() {
-    this.getMovies();
-    this.getFight();
-    this.getBat();
-    this.getRock();
-    this.getStar();
+    this.getMovie1();
+    this.getMovie2();
+    this.getMovie3();
+    this.getMovie4();
+    this.getMovie5();
 
   }
 
 
-  getMovies(): void {
-    this.movieService.getMovies()
-      .subscribe(movie => this.movies = movie.Poster);
-
+  getMovie1(): void {
+    this.movieService.getMovie1()
+      .subscribe(movie => this.movie1 = movie.Poster);
   }
 
-  getFight(): void {
-    this.movieService.getFight()
+  getMovie2(): void {
+    this.movieService.getMovie2()
       .subscribe(movie => this.movie2 = movie.Poster);
   }
-  getBat(): void {
-    this.movieService.getBat()
+  getMovie3(): void {
+    this.movieService.getMovie3()
       .subscribe(movie => this.movie3 = movie.Poster);
   }
-  getRock(): void {
-    this.movieService.getRock()
+  getMovie4(): void {
+    this.movieService.getMovie4()
       .subscribe(movie => this.movie4 = movie.Poster);
   }
-  getStar(): void {
-    this.movieService.getStar()
+  getMovie5(): void {
+    this.movieService.getMovie5()
       .subscribe(movie => this.movie5 = movie.Poster);
   }
 
