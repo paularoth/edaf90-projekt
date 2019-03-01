@@ -21,6 +21,7 @@ export class movieService {
 
 
     /** GET movies from the server */
+
     getMovies(imdbid): Observable<appmovie> {
         function fullURL(imdbid) {
             return 'http://www.omdbapi.com/?i=' + imdbid + '&apikey=97021fa0';
@@ -28,23 +29,28 @@ export class movieService {
         return this.http.get<appmovie>(fullURL(imdbid))
             .pipe(tap(movies => console.log(movies)));
     }
-
-    getStar(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.star)
+    getMovie1(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.gardian)
             .pipe(tap(movies => movies));
+
     }
-    getBat(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.bat)
-            .pipe(tap(movies => console.log(movies)));
-    }
-    getFight(): Observable<appmovie> {
+
+    getMovie2(): Observable<appmovie> {
         return this.http.get<appmovie>(this.fight)
             .pipe(tap(movies => movies));
     }
-    getRock(): Observable<appmovie> {
+
+    getMovie3(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.bat)
+            .pipe(tap(movies => console.log(movies)));
+    }
+
+    getMovie4(): Observable<appmovie> {
         return this.http.get<appmovie>(this.rock)
             .pipe(tap(movies => movies));
     }
-
-
+    getMovie5(): Observable<appmovie> {
+        return this.http.get<appmovie>(this.star)
+            .pipe(tap(movies => movies));
+    }
 }

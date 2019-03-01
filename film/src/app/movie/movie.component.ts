@@ -34,8 +34,13 @@ export class MovieComponent implements OnInit {
 
 
   }
+<<<<<<< HEAD
   getMovies(data): void {
     this.movieService.getMovies(data)
+=======
+  getMovies(): void {
+    this.movieService.getMovie1()
+>>>>>>> b79b657285fcaeb1b8c889694d0343616fcb2826
       .subscribe(movie => {
         this.imdbId = movie.imdbID,
           this.title = movie.Title,
