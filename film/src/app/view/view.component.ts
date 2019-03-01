@@ -24,15 +24,18 @@ export class ViewComponent implements OnInit {
 
     this.list = this.messageService.get();
 
-    console.log(this.list);
-    this.list.map(id => this.movieService.getMovies(id).subscribe(value => this.movies.push(value.Poster)))
-    console.log(this.movies);
-  }
-  saveMovie() {
-    this.sub = this.route.paramMap.subscribe(params =>
-      this.id = params.get('imdb'))
-    this.movieService.getMovies(this.id).subscribe(value => this.movies.push(value.Poster));
+    this.list = this.viewUnique();
 
+    this.list.map(id => this.movieService.getMovies(id).subscribe(value => this.movies.push(value.Poster)))
+
+  }
+  viewUnique() {
+    return this.list.filter(this.findUnique);
+
+  }
+
+  findUnique(value, index, self) {
+    return self.indexOf(value) === index;
   }
 
   removeMovie() {
