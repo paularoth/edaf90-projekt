@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { appmovie } from '../appmovie';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-movie',
@@ -23,15 +24,14 @@ export class MovieComponent implements OnInit {
 
 
 
-  constructor(private movieService: movieService, private route: ActivatedRoute) { }
+  constructor(private movieService: movieService,
+    private route: ActivatedRoute,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.sub = this.route.paramMap.subscribe(params =>
       this.id = params.get('imdb'))
     this.getMovies(this.id);
-
-
-
   }
   getMovies(data): void {
     this.movieService.getMovies(data)

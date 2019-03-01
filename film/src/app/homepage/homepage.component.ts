@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
+import { MessageService } from '../message.service';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -17,7 +18,9 @@ export class HomepageComponent implements OnInit {
   id4;
   movie5;
   id5;
-  constructor(private movieService: movieService, private route: ActivatedRoute) { }
+  constructor(private movieService: movieService,
+    private route: ActivatedRoute,
+    private messageService: MessageService) { }
 
   ngOnInit() {
 
@@ -27,8 +30,9 @@ export class HomepageComponent implements OnInit {
     this.getMovie4();
     this.getMovie5();
 
-
   }
+
+
 
 
 

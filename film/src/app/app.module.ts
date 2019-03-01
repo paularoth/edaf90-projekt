@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
+import { MessageService } from './message.service';
 @NgModule({
 
   declarations: [
@@ -32,7 +33,7 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
 
   ],
-  providers: [movieService],
+  providers: [movieService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
