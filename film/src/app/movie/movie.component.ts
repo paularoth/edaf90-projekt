@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { appmovie } from '../appmovie';
 import { movieService } from '../appmovie.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -8,6 +9,8 @@ import { movieService } from '../appmovie.service';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
+  @Input() id: string;
+  private sub: any;
   movies: {};
   title: {};
   year: {};
@@ -16,19 +19,25 @@ export class MovieComponent implements OnInit {
   rating: {};
   genre: {};
   votes: {};
+  imdbId: {};
 
 
 
-  constructor(private movieService: movieService) { }
+  constructor(private movieService: movieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getMovies();
+
+    this.sub = this.route.paramMap.subscribe(params =>
+      this.id = params.get('imdb'))
+    this.getMovies('tt1727824');
+
+
 
   }
-  getMovies(): void {
-    this.movieService.getMovies()
+  getMovies(data): void {
+    this.movieService.getMovies(data)
       .subscribe(movie => {
-        this.movies = movie,
+        this.imdbId = movie.imdbID,
           this.title = movie.Title,
           this.poster = movie.Poster,
           this.year = movie.Year,

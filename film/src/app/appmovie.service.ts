@@ -13,14 +13,20 @@ export class movieService {
     private fight = 'http://www.omdbapi.com/?i=tt0137523&apikey=97021fa0';
     private rock = 'http://www.omdbapi.com/?i=tt1727824&apikey=97021fa0';
 
+
     constructor(
         private http: HttpClient) {
     }
 
+
+
     /** GET movies from the server */
-    getMovies(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.gardian)
-            .pipe(tap(movies => movies));
+    getMovies(imdbid): Observable<appmovie> {
+        function fullURL(imdbid) {
+            return 'http://www.omdbapi.com/?i=' + imdbid + '&apikey=97021fa0';
+        }
+        return this.http.get<appmovie>(fullURL(imdbid))
+            .pipe(tap(movies => console.log(movies)));
     }
 
     getStar(): Observable<appmovie> {

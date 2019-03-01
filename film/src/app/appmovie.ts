@@ -7,4 +7,5 @@ export class appmovie {
     Actors: string;
     Plot: string;
     Poster: string;
+    imdbID: string;
 }
