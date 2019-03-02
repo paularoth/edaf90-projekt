@@ -9,7 +9,7 @@ export class counterService {
     counter$: Observable<number>;
 
     onChange() {
-        const timer$ = timer(30000);
+        const timer$ = timer(25000);
         return timer(0, 1000).pipe(take(this.count), map(() => --this.count));
     }
 
