@@ -9,15 +9,16 @@ import { MessageService } from '../message.service';
 })
 export class HomepageComponent implements OnInit {
   movie1;
-  id1;
-  id2;
   movie2;
-  id3;
   movie3;
   movie4;
-  id4;
   movie5;
+  id1;
+  id2;
+  id3;
+  id4;
   id5;
+
   constructor(private movieService: movieService,
     private route: ActivatedRoute,
     private messageService: MessageService) { }
@@ -34,9 +35,8 @@ export class HomepageComponent implements OnInit {
 
   onRent(id) {
     this.messageService.add(id);
-
-
   }
+
   getMovie1(): void {
     this.movieService.getMovie1()
       .subscribe(movie => {
@@ -44,6 +44,7 @@ export class HomepageComponent implements OnInit {
         this.id1 = movie.imdbID
       });
   }
+
   getMovie2(): void {
     this.movieService.getMovie2()
       .subscribe(movie => {
@@ -51,6 +52,7 @@ export class HomepageComponent implements OnInit {
           this.id2 = movie.imdbID
       });
   }
+
   getMovie3(): void {
     this.movieService.getMovie3()
       .subscribe(movie => {
@@ -58,6 +60,7 @@ export class HomepageComponent implements OnInit {
           this.id3 = movie.imdbID
       });
   }
+  
   getMovie4(): void {
     this.movieService.getMovie4()
       .subscribe(movie => {

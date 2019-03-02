@@ -16,13 +16,19 @@ export class ViewComponent implements OnInit, OnChanges {
   counter$: Observable<number>;
   list;
   private movies: Array<string> = [];
-  constructor(private movieService: movieService, private route: ActivatedRoute,
-    private messageService: MessageService, private couterService: counterService) { }
+
+  constructor(
+    private movieService: movieService, 
+    private route: ActivatedRoute,
+    private messageService: MessageService, 
+    private couterService: counterService) { 
+    }
 
   ngOnInit() {
     this.list = this.messageService.get();
     this.list = this.viewUnique();
-    this.list.map(id => this.movieService.getMovies(id).subscribe(value => this.movies.push(value.Poster)));
+    this.list.map(id => this.movieService.getMovies(id).subscribe(value => 
+      this.movies.push(value.Poster)));
     this.counter$ = this.couterService.onSave();
   }
 
@@ -33,13 +39,13 @@ export class ViewComponent implements OnInit, OnChanges {
   viewUnique() {
     return this.list.filter(this.findUnique);
   }
+
   findUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
 
   removeMovie(id) {
     this.list.filter(elem => elem == id);
-
   }
 }
 

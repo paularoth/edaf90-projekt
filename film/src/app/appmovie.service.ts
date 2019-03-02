@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class movieService {
-    private gardian = 'http://www.omdbapi.com/?i=tt3896198&apikey=97021fa0';
+    private guardian = 'http://www.omdbapi.com/?i=tt3896198&apikey=97021fa0';
     private star = 'http://www.omdbapi.com/?i=tt1517451&apikey=97021fa0';
     private bat = 'http://www.omdbapi.com/?i=tt0468569&apikey=97021fa0';
     private fight = 'http://www.omdbapi.com/?i=tt0137523&apikey=97021fa0';
@@ -27,15 +27,10 @@ export class movieService {
         return this.http.get<appmovie>(fullURL(imdbid))
             .pipe(tap(movies => movies));
     }
-    getMovie(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.gardian)
-            .pipe(tap(movies => movies));
 
-    }
     getMovie1(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.gardian)
+        return this.http.get<appmovie>(this.guardian)
             .pipe(tap(movies => movies));
-
     }
 
     getMovie2(): Observable<appmovie> {

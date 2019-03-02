@@ -1,10 +1,13 @@
-<mat-card-title></mat-card-title>
 <mat-nav-list>
-  <mat-card>Your playlist</mat-card>
+  <mat-card>My rented movies</mat-card>
+
   <mat-card *ngFor="let movie of movies">
     <img width="150vw" src="{{movie}}">
+
     <h2 *ngIf="counter$ !==0; else history">{{counter$ | async}}</h2>
+    
     <ng-template #history> History</ng-template>
+
   </mat-card>
 </mat-nav-list>
 

@@ -33,9 +33,11 @@ export class MovieComponent implements OnInit {
       this.id = params.get('imdb'))
     this.getMovies(this.id);
   }
+
   onRent(id) {
     this.messageService.add(id);
   }
+  
   getMovies(data): void {
     this.movieService.getMovies(data)
       .subscribe(movie => {
