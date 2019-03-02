@@ -4,9 +4,12 @@
   <mat-card *ngFor="let movie of movies">
     <img width="150vw" src="{{movie}}">
 
+    <p>Time left before film is returned:</p>
     <h2 *ngIf="counter$ !==0; else history">{{counter$ | async}}</h2>
     
     <ng-template #history> History</ng-template>
+
+   
 
   </mat-card>
 </mat-nav-list>
