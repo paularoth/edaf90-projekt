@@ -1,14 +1,29 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="100vw" alt="Snart kommer fin bild här" src="assets/img/camera.jpg">
-</div>
-<nav>
-  <a routerLink="/view" routerLinkActive="active">Current Movies</a>
-  <a routerLink="/homepage" routerLinkActive="active">Home page</a>
-  <a routerLink="/history" routerLinkActive="active"> History</a>
+    <div style="text-align:center">      
+        <img width="100vw" alt="Snart kommer fin bild här" src="assets/img/camera.jpg">
+        <h2> Welcome to {{ title }}! </h2>
 
-</nav>
+
+    <div id="menu-outer">
+        <div class="table">
+          <ul id="horizontal-list">
+          <nav>
+          <li class="top-menu-item">
+            <a routerLink="/homepage" routerLinkActive="active">Home page</a>
+          </li>
+ 
+          <li class="top-menu-item">
+            <a routerLink="/view" routerLinkActive="active">Current Movies</a>
+          </li>
+
+          <li class="top-menu-item">
+            <a routerLink="/history" routerLinkActive="active"> History</a>
+          </li>
+      </nav> 
+    </ul>
+  </div>
+</div>
+    </div>
+
+
 <router-outlet> </router-outlet>

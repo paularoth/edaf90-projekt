@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
 h1 {
     font-size: 1.2em;
     color: #999;
@@ -11,18 +14,40 @@ h1 {
   nav a {
     padding: 10px 20px;
     text-decoration: none;
-    margin-top: 10px;
     display: inline-block;
-    background-color: #eee;
-    border-radius: 5px;
+    background-color: rgb(219, 188, 245);
+    border-radius: 10px;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-variant: small-caps;
   }
-  nav a:visited, a:link {
-    color: #607D8B;
-  }
+ 
   nav a:hover {
-    color: #b21dd8;
-    background-color: #CFD8DC;
+    color: #000000;
+    background-color: rgb(213, 142, 231);
+    font-family: 'Roboto';
+    font-size: 20px;
+
   }
   nav a.active {
-    color: #039be5;
+    color: #653369;
   }
+
+  #menu-outer {
+    height: 84px;
+    background: url(https://cdn3.vectorstock.com/i/1000x1000/18/02/purple-and-yellow-pineapple-textile-print-seamless-vector-10971802.jpg) repeat-x;
+  }
+  
+  .table {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+  }
+  
+  ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+    }
+    ul#horizontal-list li {
+      display: inline;
+    }
