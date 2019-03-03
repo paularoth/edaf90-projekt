@@ -13,7 +13,6 @@ export class counterService {
         return timer(0, 1000).pipe(take(this.count), map(() => --this.count));
     }
 
-
     onSave() {
         const timer$ = timer(30000);
         return timer(0, 1000).pipe(takeUntil(timer$), map(() => --this.count));
