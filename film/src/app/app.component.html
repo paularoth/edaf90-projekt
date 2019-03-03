@@ -1,29 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center">      
-        <img width="100vw" alt="Snart kommer fin bild här" src="assets/img/camera.jpg">
-        <h2> Welcome to {{ title }}! </h2>
 
+<div class="wrapper">      
 
-    <div id="menu-outer">
-        <div class="table">
-          <ul id="horizontal-list">
-          <nav>
-          <li class="top-menu-item">
-            <a routerLink="/homepage" routerLinkActive="active">Home page</a>
-          </li>
- 
-          <li class="top-menu-item">
-            <a routerLink="/view" routerLinkActive="active">Current Movies</a>
-          </li>
+  <h2> Welcome to {{ title }} </h2>
 
-          <li class="top-menu-item">
-            <a routerLink="/history" routerLinkActive="active"> History</a>
-          </li>
-      </nav> 
-    </ul>
-  </div>
+    <nav class="navigation-bar">
+      <img class="logo" width="80vw" alt="No image" src="assets/img/movie_icon_1.png">
+      <a routerLink="/homepage" routerLinkActive="active">Homepage</a>
+      <a routerLink="/view" routerLinkActive="active">My rented Movies</a>
+      <a routerLink="/history" routerLinkActive="active">History</a>
+    </nav> 
+
 </div>
-    </div>
-
 
 <router-outlet> </router-outlet>
