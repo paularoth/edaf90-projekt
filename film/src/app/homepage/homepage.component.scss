@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-    
-nav a { /*Rutan till höger om postern, där "Mer info" står*/
-  padding: 90px 100px;
+.header {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Roboto';
+  font-variant: small-caps;
+}
+
+nav a { /*"Read more"-utrymmet*/
+  padding: 10px 10px;
   text-decoration: none;
   display: inline-block;
   background-color: rgb(250, 245, 203);
-  margin-right: 1050px;
+  margin-right: 70px;
+  margin-left: 20px;
 }
       
 nav a:visited, a:link { /*Ger länkens färg*/
@@ -19,8 +26,12 @@ nav a:visited, a:link { /*Ger länkens färg*/
   margin-bottom: 50px;
 }
 
+.mat-list-base .mat-list-item img{
+  margin-right: 50px;
+}
+
 .button{
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50; 
   border: none;
   color: white;
   padding: 20px 50px;
@@ -40,11 +51,10 @@ nav a:visited, a:link { /*Ger länkens färg*/
 .button-rent-movie {
   background-color: white; 
     color: black; 
-    border: 2px solid #4CAF50;
+    border: 2px solid purple;
 }
       
 .button-rent-movie:hover {
-  background-color: #4CAF50;
+  background-color: purple;
   color: white;
 }
-     

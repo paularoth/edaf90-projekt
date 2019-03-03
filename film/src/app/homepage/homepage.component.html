@@ -1,12 +1,23 @@
-
-<h1>Top Movies right now</h1>
+<div class="header">
+  <h1>Top Movies right now</h1>
+</div>
 
 <mat-nav-list>
-  <a mat-list-item><img width="150vw" src="{{movie1}}">
-    <nav> 
-      <a [routerLink]="['/movie',id1]" routerLinkActive="active">More about the movie</a>
-    </nav>
+
+  <a mat-list-item> <img width="150vw" src="{{movie1}}">
+    <div class="movie-details">
       
+        {{title1}} ({{year1}})
+        {{genre1}}
+        Rating at IMDB: {{rate1}} from {{votes1}} people
+        {{plot1}}
+        {{actors1}}
+
+    </div>
+      <nav>
+      <a [routerLink]="['/movie',id1]" routerLinkActive="active">Read more</a>
+    </nav>
+
     <a routerLink='/view' routerLinkActive="active" (click)="onRent(id1)">
       <button class="button button-rent-movie">Rent movie</button>
     </a>
@@ -14,7 +25,7 @@
  
   <a mat-list-item><img width="150vw" src="{{movie2}}">
     <nav> 
-      <a [routerLink]="['/movie',id2]" routerLinkActive="active"> More about the movie</a>
+      <a [routerLink]="['/movie',id2]" routerLinkActive="active">Read more</a>
     </nav>
       <a routerLink='/view' routerLinkActive="active" (click)="onRent(id2)">
         <button class="button button-rent-movie">Rent movie</button>
@@ -23,7 +34,7 @@
   
   <a mat-list-item><img width="150vw" src="{{movie3}}">
     <nav> 
-      <a [routerLink]="['/movie',id3]" routerLinkActive="active"> More about the movie</a> 
+      <a [routerLink]="['/movie',id3]" routerLinkActive="active">Read more</a> 
     </nav>
 
     <a routerLink='/view' routerLinkActive="active" (click)="onRent(id3)">
@@ -33,7 +44,7 @@
  
   <a mat-list-item><img width="150vw" src="{{movie4}}">
     <nav> 
-      <a [routerLink]="['/movie',id4]" routerLinkActive="active"> More about the movie</a> 
+      <a [routerLink]="['/movie',id4]" routerLinkActive="active">Read more</a> 
     </nav>
 
     <a routerLink='/view' routerLinkActive="active" (click)="onRent(id4)">
@@ -43,7 +54,7 @@
  
   <a mat-list-item> <img width="150vw" src="{{movie5}}">
     <nav> 
-      <a [routerLink]="['/movie',id5]" routerLinkActive="active"> More about the movie</a>
+      <a [routerLink]="['/movie',id5]" routerLinkActive="active">Read more</a>
     </nav>
 
     <a routerLink='/view' routerLinkActive="active" (click)="onRent(id5)">
@@ -52,4 +63,5 @@
   </a>
   
 </mat-nav-list>
+
 <router-outlet></router-outlet>

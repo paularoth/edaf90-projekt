@@ -13,11 +13,20 @@ export class HomepageComponent implements OnInit {
   movie3;
   movie4;
   movie5;
+
   id1;
   id2;
   id3;
   id4;
   id5;
+
+  title1;
+  year1;
+  genre1;
+  actors1;
+  plot1;
+  rate1;
+  votes1;
 
   constructor(private movieService: movieService,
     private route: ActivatedRoute,
@@ -42,6 +51,14 @@ export class HomepageComponent implements OnInit {
       .subscribe(movie => {
         this.movie1 = movie.Poster
         this.id1 = movie.imdbID
+
+        this.title1 = movie.Title
+        this.year1 = movie.Year
+        this.genre1 = movie.Genre
+        this.actors1 = movie.Actors
+        this.plot1 = movie.Plot
+        this.rate1 = movie.imdbRating
+        this.votes1 = movie.imdbVotes
       });
   }
 
