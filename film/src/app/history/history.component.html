@@ -1,3 +1,7 @@
-<p>
-  history works!
-</p>
+<mat-nav-list>
+  <mat-card>My rented movies</mat-card>
+  <mat-card *ngFor="let movie of list">
+    <img width="150vw" src="{{movie}}">
+  </mat-card>
+</mat-nav-list>
+<router-outlet></router-outlet>

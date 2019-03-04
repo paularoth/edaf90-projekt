@@ -11,12 +11,11 @@ import { counterService } from '../counter.service'
   styleUrls: ['./view.component.scss']
 })
 
-export class ViewComponent implements OnInit, OnChanges {
+export class ViewComponent implements OnInit {
   private counterList: Array<Observable<number>> = [];
-  counter$: Observable<number>;
-  list;
+  count;
+  list: any;
   private movies: Array<string> = [];
-
   constructor(
     private movieService: movieService,
     private route: ActivatedRoute,
@@ -29,12 +28,15 @@ export class ViewComponent implements OnInit, OnChanges {
     this.list = this.viewUnique();
     this.list.map(id => this.movieService.getMovies(id).subscribe(value =>
       this.movies.push(value.Poster)));
-    this.counter$ = this.counterService.onSave();
+    this.counterService.onSave().subscribe({
+      next: resp => this.count = resp,
+      complete: () => {
+        this.messageService.pop(),
+          this.messageService.addHistory(this.movies.shift())
+      },
+    });
   }
 
-  ngOnChanges() {
-    this.counter$ = this.counterService.onChange();
-  }
 
   viewUnique() {
     return this.list.filter(this.findUnique);

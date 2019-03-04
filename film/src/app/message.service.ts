@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 @Injectable()
 export class MessageService {
     messages: any = [];
-    history: any[];
+    history: any = [];
     movie
+
 
     add(message: string) {
         this.messages.push(message)
     }
-    addHistory(history: string) {
-        this.history.push(history)
+    addHistory(item: string) {
+        this.history.push(item)
     }
-    clear() {
-        this.messages = [];
+    pop() {
+        this.messages.shift();
     }
     get() {
         return this.messages;
     }
 
     getHistory() {
-        return this.history;
+
+      let unique_array = this.history.filter(function(elem, index, self) {
+        return index == self.indexOf(elem);
+      });
+      return unique_array;
     }
 
 }
