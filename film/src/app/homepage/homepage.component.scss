@@ -7,6 +7,24 @@
   font-variant: small-caps;
 }
 
+h2{
+  font-size: 30px;
+  font-family: 'Roboto';
+  font-variant: small-caps;
+  margin-bottom: 0px;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 0px;
+  font-family: 'Roboto';
+}
+
+i {
+  font-size: 20px;
+  font-family: 'Roboto';
+}
+
 nav a { /*"Read more"-utrymmet*/
   padding: 10px 10px;
   text-decoration: none;
@@ -15,13 +33,13 @@ nav a { /*"Read more"-utrymmet*/
   margin-right: 70px;
   margin-left: 20px;
 }
-      
+
 nav a:visited, a:link { /*Ger länkens färg*/
   color: rgb(56, 142, 185);
 }
-      
+
 .mat-list-base .mat-list-item { /*Hela raden (listobjektet)*/
-  height: 250px; 
+  height: 250px;
   background-color: rgba(236, 209, 236, 0.966);
   margin-bottom: 50px;
 }
@@ -31,7 +49,7 @@ nav a:visited, a:link { /*Ger länkens färg*/
 }
 
 .button{
-  background-color: #4CAF50; 
+  background-color: #4CAF50;
   border: none;
   color: white;
   padding: 20px 50px;
@@ -49,11 +67,11 @@ nav a:visited, a:link { /*Ger länkens färg*/
 }
 
 .button-rent-movie {
-  background-color: white; 
-    color: black; 
-    border: 2px solid purple;
+  background-color: white;
+  color: black;
+  border: 2px solid purple;
 }
-      
+
 .button-rent-movie:hover {
   background-color: purple;
   color: white;
