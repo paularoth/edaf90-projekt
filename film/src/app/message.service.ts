@@ -4,9 +4,16 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class MessageService {
     messages: any = [];
+    history: any[];
+    movie
 
     add(message: string) {
         this.messages.push(message)
+    }
+
+    addHistory(history: string) {
+        this.history.push(history)
+
     }
     clear() {
         this.messages = [];
@@ -14,4 +21,9 @@ export class MessageService {
     get() {
         return this.messages;
     }
+
+    getHistory() {
+        return this.history;
+    }
+
 }

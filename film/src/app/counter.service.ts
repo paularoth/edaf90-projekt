@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class counterService {
-    count = 30;
+    count = 10;
     counter$: Observable<number>;
 
     onChange() {
@@ -14,7 +14,7 @@ export class counterService {
     }
 
     onSave() {
-        const timer$ = timer(30000);
+        const timer$ = timer(10000);
         return timer(0, 1000).pipe(takeUntil(timer$), map(() => --this.count));
     }
 }

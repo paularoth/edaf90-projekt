@@ -5,13 +5,10 @@
 <h2>
     <img width="400vw" alt="No image" src="{{poster}}">
 </h2>
-
 <h3> Genre: {{genre}}</h3>
 <h3> Rating at IMDB: {{rating}} from {{votes}} people</h3>
 <h3> Awards: {{awards}}</h3>
 <h3> Plot: {{plot}}</h3>
-
-
-<a routerLink='/view' routerLinkActive="active" (click)="onRent(imdbId)"> 
-    <button>Rent movie</button> 
+<a routerLink='/view' routerLinkActive="active" (click)="onRent(imdbId)">
+    <button>Rent movie</button>
 </a>

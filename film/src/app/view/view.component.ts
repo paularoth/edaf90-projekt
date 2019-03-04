@@ -18,16 +18,16 @@ export class ViewComponent implements OnInit, OnChanges {
   private movies: Array<string> = [];
 
   constructor(
-    private movieService: movieService, 
+    private movieService: movieService,
     private route: ActivatedRoute,
-    private messageService: MessageService, 
-    private counterService: counterService) { 
-    }
+    private messageService: MessageService,
+    private counterService: counterService) {
+  }
 
   ngOnInit() {
     this.list = this.messageService.get();
     this.list = this.viewUnique();
-    this.list.map(id => this.movieService.getMovies(id).subscribe(value => 
+    this.list.map(id => this.movieService.getMovies(id).subscribe(value =>
       this.movies.push(value.Poster)));
     this.counter$ = this.counterService.onSave();
   }
