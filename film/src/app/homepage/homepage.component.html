@@ -6,18 +6,13 @@
 
   <a mat-list-item> <img width="150vw" src="{{movie1}}">
     <div class="movie-details">
-
-      {{movies}} ({{year1}})
+      {{title1}}
+      ({{year1}})
       {{genre1}}
-      Rating at IMDB: {{rate1}} from {{votes1}} people
-      {{plot1}}
-      {{actors1}}
-
     </div>
     <nav>
       <a [routerLink]="['/movie',id1]" routerLinkActive="active">Read more</a>
     </nav>
-
     <a routerLink='/view' routerLinkActive="active" (click)="onRent(id1)">
       <button class="button button-rent-movie">Rent movie</button>
     </a>
