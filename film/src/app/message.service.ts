@@ -10,10 +10,8 @@ export class MessageService {
     add(message: string) {
         this.messages.push(message)
     }
-
     addHistory(history: string) {
         this.history.push(history)
-
     }
     clear() {
         this.messages = [];

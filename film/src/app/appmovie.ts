@@ -10,3 +10,4 @@ export class appmovie {
     imdbID: string;
     Awards: string;
 }
+

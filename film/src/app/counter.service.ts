@@ -8,6 +8,7 @@ export class counterService {
     count = 10;
     counter$: Observable<number>;
 
+
     onChange() {
         const timer$ = timer(25000);
         return timer(0, 1000).pipe(take(this.count), map(() => --this.count));

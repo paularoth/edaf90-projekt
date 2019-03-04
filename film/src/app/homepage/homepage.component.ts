@@ -23,23 +23,17 @@ export class HomepageComponent implements OnInit {
   title1;
   year1;
   genre1;
-  actors1;
-  plot1;
-  rate1;
-  votes1;
 
   constructor(private movieService: movieService,
     private route: ActivatedRoute,
     private messageService: MessageService) { }
 
   ngOnInit() {
-
     this.getMovie1();
     this.getMovie2();
     this.getMovie3();
     this.getMovie4();
     this.getMovie5();
-
   }
 
   onRent(id) {
@@ -51,14 +45,9 @@ export class HomepageComponent implements OnInit {
       .subscribe(movie => {
         this.movie1 = movie.Poster
         this.id1 = movie.imdbID
-
         this.title1 = movie.Title
         this.year1 = movie.Year
         this.genre1 = movie.Genre
-        this.actors1 = movie.Actors
-        this.plot1 = movie.Plot
-        this.rate1 = movie.imdbRating
-        this.votes1 = movie.imdbVotes
       });
   }
 
@@ -77,7 +66,7 @@ export class HomepageComponent implements OnInit {
           this.id3 = movie.imdbID
       });
   }
-  
+
   getMovie4(): void {
     this.movieService.getMovie4()
       .subscribe(movie => {
