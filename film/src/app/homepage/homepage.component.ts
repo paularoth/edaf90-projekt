@@ -23,10 +23,6 @@ export class HomepageComponent implements OnInit {
   title1;
   year1;
   genre1;
-  actors1;
-  plot1;
-  rate1;
-  votes1;
 
   constructor(private movieService: movieService,
     private route: ActivatedRoute,
@@ -55,10 +51,6 @@ export class HomepageComponent implements OnInit {
         this.title1 = movie.Title
         this.year1 = movie.Year
         this.genre1 = movie.Genre
-        this.actors1 = movie.Actors
-        this.plot1 = movie.Plot
-        this.rate1 = movie.imdbRating
-        this.votes1 = movie.imdbVotes
       });
   }
 
