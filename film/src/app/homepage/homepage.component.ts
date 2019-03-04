@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../message.service';
+import {appmovie} from '../appmovie';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  mvList = [];
   poster1;
   poster2;
   poster3;
@@ -45,11 +47,19 @@ export class HomepageComponent implements OnInit {
               private messageService: MessageService) { }
 
   ngOnInit() {
+   /* let tempIdList = this.movieService.getMovieList();
+    tempIdList.forEach(mvID => {
+      this.movieService.getMovies(mvID).subscribe(movie => {
+        this.mvList.push( new appmovie(movie.Poster, movie.imdbID,
+         movie.Title, movie.Year, movie.Genre))
+      })
+      console.log(this.mvList);
+    });*/
     this.getMovie1();
     this.getMovie2();
     this.getMovie3();
     this.getMovie4();
-    this.getMovie5();
+    this.getMovie5(); 
   }
 
   onRent(id) {
