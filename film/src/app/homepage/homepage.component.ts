@@ -48,6 +48,7 @@ export class HomepageComponent implements OnInit {
         this.title1 = movie.Title
         this.year1 = movie.Year
         this.genre1 = movie.Genre
+
       });
   }
 
