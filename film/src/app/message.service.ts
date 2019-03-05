@@ -23,7 +23,6 @@ export class MessageService {
     }
 
     getHistory() {
-
       let unique_array = this.history.filter(function(elem, index, self) {
         return index == self.indexOf(elem);
       });

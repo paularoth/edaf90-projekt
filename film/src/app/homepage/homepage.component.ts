@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../message.service';
+import {appmovie} from '../appmovie';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  mvList = [];
   poster1;
   poster2;
   poster3;
@@ -41,15 +43,23 @@ export class HomepageComponent implements OnInit {
   genre5;
 
   constructor(private movieService: movieService,
-    private route: ActivatedRoute,
-    private messageService: MessageService) { }
+              private route: ActivatedRoute,
+              private messageService: MessageService) { }
 
   ngOnInit() {
+   /* let tempIdList = this.movieService.getMovieList();
+    tempIdList.forEach(mvID => {
+      this.movieService.getMovies(mvID).subscribe(movie => {
+        this.mvList.push( new appmovie(movie.Poster, movie.imdbID,
+         movie.Title, movie.Year, movie.Genre))
+      })
+      console.log(this.mvList);
+    });*/
     this.getMovie1();
     this.getMovie2();
     this.getMovie3();
     this.getMovie4();
-    this.getMovie5();
+    this.getMovie5(); 
   }
 
   onRent(id) {
@@ -72,7 +82,7 @@ export class HomepageComponent implements OnInit {
     this.movieService.getMovie2()
       .subscribe(movie => {
         this.poster2 = movie.Poster,
-        this.id2 = movie.imdbID
+          this.id2 = movie.imdbID
         this.title2 = movie.Title
         this.year2 = movie.Year
         this.genre2 = movie.Genre
@@ -83,7 +93,7 @@ export class HomepageComponent implements OnInit {
     this.movieService.getMovie3()
       .subscribe(movie => {
         this.poster3 = movie.Poster,
-        this.id3 = movie.imdbID
+          this.id3 = movie.imdbID
         this.title3 = movie.Title
         this.year3 = movie.Year
         this.genre3 = movie.Genre
