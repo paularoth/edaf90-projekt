@@ -5,14 +5,21 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class counterService {
-    count;
-    counters: any[];
+    counterList;
 
+    public addCounter(){
+        var counter = this.countDown();
+        this.counterList.push (counter);
+        return counter;
+    }
 
+    countDown() {
+        var count = 10;
+        return timer(0, 1000).pipe(map(() => --count), takeWhile(c => c >= 0));
+    }
 
-    onSave() {
-        this.count = 10;
-        return timer(0, 1000).pipe(map(() => --this.count), takeWhile(count => count >= 0));
+    sendCounterList(){
+        return this.counterList;
     }
 
 }

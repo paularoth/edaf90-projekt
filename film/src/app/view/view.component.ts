@@ -12,10 +12,11 @@ import { counterService } from '../counter.service'
 })
 
 export class ViewComponent implements OnInit {
-  private counterList: Array<Observable<number>> = [];
+  private counterList;
   count;
-  list: any;
-  private movies: Array<string> = [];
+  idList: any;
+  private moviePosterList: Array<string> = [];
+
   constructor(
     private movieService: movieService,
     private route: ActivatedRoute,
@@ -24,22 +25,35 @@ export class ViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.list = this.messageService.get();
-    this.list = this.viewUnique();
-    this.list.map(id => this.movieService.getMovies(id).subscribe(value =>
-      this.movies.push(value.Poster)));
-    this.counterService.onSave().subscribe({
-      next: resp => this.count = resp,
-      complete: () => {
-        this.messageService.pop(),
-          this.messageService.addHistory(this.movies.shift())
-      },
-    });
+    this.idList = this.messageService.get();
+    this.idList = this.viewUnique();
+    this.idList.map(id => this.movieService.getMovies(id)
+    .subscribe(value => this.moviePosterList.push(value.Poster)));
+
+    this.counterList = this.getCounterList();
+    var copyList = this.idList;
+    this.counterListSubscribe(copyList);
   }
 
+  getCounterList(){
+    return this.counterService.sendCounterList();
+  }
+
+  counterListSubscribe(list) {
+    for (var id in list){
+      list[id] = this.counterList.addCounter()
+      .subscribe({
+        next: resp => this.count = resp,
+        complete: () => {
+          this.messageService.pop(),
+          this.messageService.addHistory(this.moviePosterList.shift())
+        },
+      });
+    }
+  }
 
   viewUnique() {
-    return this.list.filter(this.findUnique);
+    return this.idList.filter(this.findUnique);
   }
 
   findUnique(value, index, self) {
@@ -47,7 +61,7 @@ export class ViewComponent implements OnInit {
   }
 
   removeMovie(id) {
-    this.list.filter(elem => elem == id);
+    this.idList.filter(elem => elem == id);
   }
 }
 
