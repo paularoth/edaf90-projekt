@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
-import { MessageService } from '../message.service';
-import {appmovie} from '../appmovie';
+import { RentalService } from '../rental.service';
+import { appmovie } from '../appmovie';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -43,27 +43,27 @@ export class HomepageComponent implements OnInit {
   genre5;
 
   constructor(private movieService: movieService,
-              private route: ActivatedRoute,
-              private messageService: MessageService) { }
+    private route: ActivatedRoute,
+    private rentalService: RentalService) { }
 
   ngOnInit() {
-   /* let tempIdList = this.movieService.getMovieList();
-    tempIdList.forEach(mvID => {
-      this.movieService.getMovies(mvID).subscribe(movie => {
-        this.mvList.push( new appmovie(movie.Poster, movie.imdbID,
-         movie.Title, movie.Year, movie.Genre))
-      })
-      console.log(this.mvList);
-    });*/
+    /* let tempIdList = this.movieService.getMovieList();
+     tempIdList.forEach(mvID => {
+       this.movieService.getMovies(mvID).subscribe(movie => {
+         this.mvList.push( new appmovie(movie.Poster, movie.imdbID,
+          movie.Title, movie.Year, movie.Genre))
+       })
+       console.log(this.mvList);
+     });*/
     this.getMovie1();
     this.getMovie2();
     this.getMovie3();
     this.getMovie4();
-    this.getMovie5(); 
+    this.getMovie5();
   }
 
   onRent(id) {
-    this.messageService.add(id);
+    this.rentalService.add(id);
   }
 
   getMovie1(): void {

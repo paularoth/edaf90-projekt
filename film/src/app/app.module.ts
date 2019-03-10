@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
-import { MessageService } from './message.service';
+import { RentalService } from './rental.service';
 import { counterService } from './counter.service';
 @NgModule({
 
@@ -34,7 +34,7 @@ import { counterService } from './counter.service';
     MatCardModule,
 
   ],
-  providers: [movieService, MessageService, counterService],
+  providers: [movieService, RentalService, counterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

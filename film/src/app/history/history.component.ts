@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../message.service';
+import { RentalService } from '../rental.service';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -7,10 +7,10 @@ import { MessageService } from '../message.service';
 })
 export class HistoryComponent implements OnInit {
   list;
-  constructor(private messageService: MessageService) { }
+  constructor(private rentalService: RentalService) { }
 
   ngOnInit() {
-    this.list = this.messageService.getHistory();
+    this.list = this.rentalService.getHistory();
   }
 
 }

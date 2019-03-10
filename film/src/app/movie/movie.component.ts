@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { movieService } from '../appmovie.service';
 import { ActivatedRoute } from '@angular/router';
-import { MessageService } from '../message.service';
+import { RentalService } from '../rental.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class MovieComponent implements OnInit {
 
   constructor(private movieService: movieService,
     private route: ActivatedRoute,
-    private messageService: MessageService) { }
+    private rentalService: RentalService) { }
 
   ngOnInit() {
     this.sub = this.route.paramMap.subscribe(params =>
@@ -36,20 +36,20 @@ export class MovieComponent implements OnInit {
   }
 
   onRent(id) {
-    this.messageService.add(id);
+    this.rentalService.add(id);
   }
-  
+
   getMovies(data): void {
     this.movieService.getMovies(data)
       .subscribe(movie => {
         this.imdbId = movie.imdbID,
-        this.title = movie.Title,
-        this.poster = movie.Poster,
-        this.year = movie.Year,
-        this.rating = movie.imdbRating,
-        this.genre = movie.Genre,
-        this.votes = movie.imdbVotes,
-        this.plot = movie.Plot
+          this.title = movie.Title,
+          this.poster = movie.Poster,
+          this.year = movie.Year,
+          this.rating = movie.imdbRating,
+          this.genre = movie.Genre,
+          this.votes = movie.imdbVotes,
+          this.plot = movie.Plot
         this.awards = movie.Awards;
         this.actors = movie.Actors;
 
