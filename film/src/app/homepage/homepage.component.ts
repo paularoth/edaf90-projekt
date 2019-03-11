@@ -43,7 +43,6 @@ export class HomepageComponent implements OnInit {
   genre5;
 
   constructor(private movieService: movieService,
-    private route: ActivatedRoute,
     private rentalService: RentalService) { }
 
   ngOnInit() {
@@ -55,31 +54,24 @@ export class HomepageComponent implements OnInit {
        })
        console.log(this.mvList);
      });*/
-    this.getMovie1();
-    this.getMovie2();
-    this.getMovie3();
-    this.getMovie4();
-    this.getMovie5();
+    this.getMovie();
+
   }
 
   onRent(id) {
-    this.rentalService.add(id);
+    this.rentalService.addRental(id);
   }
 
-  getMovie1(): void {
-    this.movieService.getMovie1()
+  getMovie(): void {
+    this.movieService.getMovie(1)
       .subscribe(movie => {
         this.poster1 = movie.Poster
         this.id1 = movie.imdbID
         this.title1 = movie.Title
         this.year1 = movie.Year
         this.genre1 = movie.Genre
-
       });
-  }
-
-  getMovie2(): void {
-    this.movieService.getMovie2()
+    this.movieService.getMovie(2)
       .subscribe(movie => {
         this.poster2 = movie.Poster,
           this.id2 = movie.imdbID
@@ -87,10 +79,7 @@ export class HomepageComponent implements OnInit {
         this.year2 = movie.Year
         this.genre2 = movie.Genre
       });
-  }
-
-  getMovie3(): void {
-    this.movieService.getMovie3()
+    this.movieService.getMovie(3)
       .subscribe(movie => {
         this.poster3 = movie.Poster,
           this.id3 = movie.imdbID
@@ -98,10 +87,7 @@ export class HomepageComponent implements OnInit {
         this.year3 = movie.Year
         this.genre3 = movie.Genre
       });
-  }
-
-  getMovie4(): void {
-    this.movieService.getMovie4()
+    this.movieService.getMovie(4)
       .subscribe(movie => {
         this.poster4 = movie.Poster
         this.id4 = movie.imdbID
@@ -109,10 +95,7 @@ export class HomepageComponent implements OnInit {
         this.year4 = movie.Year
         this.genre4 = movie.Genre
       });
-  }
-
-  getMovie5(): void {
-    this.movieService.getMovie5()
+    this.movieService.getMovie(5)
       .subscribe(movie => {
         this.poster5 = movie.Poster
         this.id5 = movie.imdbID
@@ -121,5 +104,4 @@ export class HomepageComponent implements OnInit {
         this.genre5 = movie.Genre
       });
   }
-
 }

@@ -36,7 +36,7 @@ export class MovieComponent implements OnInit {
   }
 
   onRent(id) {
-    this.rentalService.add(id);
+    this.rentalService.addRental(id);
   }
 
   getMovies(data): void {

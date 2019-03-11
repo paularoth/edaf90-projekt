@@ -1,10 +1,17 @@
 <mat-nav-list>
+
   <mat-card>My rented movies</mat-card>
-  <mat-card *ngFor="let movie of movies">
-    <img width="150vw" src="{{movie}}">
+
+  <mat-card *ngFor="let movie of rentedMovies">
+
+    <img width="150vw" src="{{movie.poster}}">
+
     <p>Time left before film is returned:</p>
-    <h2 *ngIf="counter$ !==0; else history">{{count}}</h2>
+
+    <h2 *ngIf="movie.counter >=0; else history">{{movie.counter}}</h2>
+
     <ng-template #history> History</ng-template>
+
   </mat-card>
+
 </mat-nav-list>
-<router-outlet></router-outlet>

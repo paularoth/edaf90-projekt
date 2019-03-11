@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { movieService } from '../appmovie.service';
 import { RentalService } from '../rental.service';
 import { Observable } from 'rxjs';
-import { counterService } from '../counter.service'
+
 
 @Component({
   selector: 'app-view',
@@ -12,44 +12,22 @@ import { counterService } from '../counter.service'
 })
 
 export class ViewComponent implements OnInit {
-  private counterList: Array<Observable<number>> = [];
+  rentedMovies: Array<any> = [];
   count;
   list: any;
   private movies: Array<string> = [];
   constructor(
     private movieService: movieService,
     private route: ActivatedRoute,
-    private rentalService: RentalService,
-    private counterService: counterService) {
+    private rentalService: RentalService) {
   }
 
   ngOnInit() {
-    this.list = this.rentalService.get();
-    this.list = this.viewUnique();
-    this.list.map(id => this.movieService.getMovies(id).subscribe(value =>
-      this.movies.push(value.Poster)));
-    this.counterService.onSave().subscribe({
-      next: resp => this.count = resp,
-      complete: () => {
-        this.rentalService.pop(),
-          this.rentalService.addHistory(this.movies.shift())
-      },
-    });
-  }
+    this.rentedMovies = this.rentalService.get();
 
-
-  viewUnique() {
-    return this.list.filter(this.findUnique);
-  }
-
-  findUnique(value, index, self) {
-    return self.indexOf(value) === index;
-  }
-
-  removeMovie(id) {
-    this.list.filter(elem => elem == id);
   }
 }
+
 
 
 

@@ -1,32 +1,74 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { movieService } from './appmovie.service'
+import { interval } from 'rxjs';
 
+
+
+export
+    interface RentedMovie {
+    id: string;
+    counter: number;
+    poster: string
+
+}
 
 @Injectable()
 export class RentalService {
-    rental: any = [];
+    rented: RentedMovie[] = [];
     history: any = [];
-    movie
 
+    constructor(private movieService: movieService) {
+    }
 
-    add(rental: string) {
-        this.rental.push(rental)
+    addRental(rent: string) {
+        const rented = {
+            id: rent, counter: 10, poster: null
+        };
+        const fetchSubsc = this.movieService.getMovies(rented.id).subscribe(value => {
+            rented.poster = value.Poster;
+            fetchSubsc.unsubscribe();
+        });
+        const
+            subscription = interval(1000).subscribe(x => {
+                if (rented.counter >
+                    0) {
+                    rented.counter--;
+                } else {
+                    this.returnMovie(rent);
+                    subscription.unsubscribe();
+                }
+            }
+            );
+        this.rented.push(rented);
     }
-    addHistory(item: string) {
-        this.history.push(item)
+
+    returnMovie(item:
+        string) {
+        let
+            movie = this.rented.pop();
+
+        let
+            index = 0;
+
+        while (movie.id !==
+            item) {
+            const tmp = this.rented[index];
+            this.rented[index] = movie;
+            movie = tmp;
+            index++;
+        }
+        this.history.push(movie.poster);
     }
-    pop() {
-        this.rental.shift();
-    }
+
     get() {
-        return this.rental;
+        return this.rented;
     }
 
     getHistory() {
-        let unique_array = this.history.filter(function (elem, index, self) {
+        let unique = this.history.filter(function (elem, index, self) {
             return index == self.indexOf(elem);
-        });
-        return unique_array;
+        })
+        return unique;
     }
-
 }

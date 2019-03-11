@@ -14,7 +14,6 @@ import { MatButtonModule } from '@angular/material';
 import { MatListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { RentalService } from './rental.service';
-import { counterService } from './counter.service';
 @NgModule({
 
   declarations: [
@@ -34,7 +33,7 @@ import { counterService } from './counter.service';
     MatCardModule,
 
   ],
-  providers: [movieService, RentalService, counterService],
+  providers: [movieService, RentalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

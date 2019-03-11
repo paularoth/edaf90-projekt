@@ -11,12 +11,21 @@ export class appmovie {
     Awards: string;
 
     constructor(myPoster, myImdbID,
-        myTitle, myYear, myGenre){
+        myTitle, myYear, myGenre) {
         this.Poster = myPoster;
-        this.imdbID =  myImdbID;
+        this.imdbID = myImdbID;
         this.Title = myTitle;
         this.Year = myYear;
         this.Genre = myGenre;
     }
+    create(myPoster, myImdbID,
+        myTitle, myYear, myGenre) {
+        this.Poster = myPoster;
+        this.imdbID = myImdbID;
+        this.Title = myTitle;
+        this.Year = myYear;
+        this.Genre = myGenre;
+    }
+
 }
 
