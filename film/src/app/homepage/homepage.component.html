@@ -2,8 +2,22 @@
   <h1>Top Movies right now</h1>
 </div>
 
-<mat-list>
+<mat-list *ngFor="let movie of mvList">
+  <a mat-list-item>
+      <img width="150vw" src="{{movie.Poster}}">
+      <div class="movie-details">
+          <h2>{{movie.Title}} ({{movie.Year}})</h2> <br />
 
+          <i>{{movie.Genre}}</i> <br />
+          <i>50kr</i>
+      </div>
+  </a>
+
+  
+
+</mat-list>
+
+<mat-list>
   <a mat-list-item> <img width="150vw" src="{{poster1}}">
 
     <div class="movie-details">

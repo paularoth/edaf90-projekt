@@ -9,6 +9,7 @@ import { appmovie } from '../appmovie';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+  mvIdList = [];
   mvList = [];
   poster1;
   poster2;
@@ -43,7 +44,9 @@ export class HomepageComponent implements OnInit {
   genre5;
 
   constructor(private movieService: movieService,
-    private rentalService: RentalService) { }
+    private rentalService: RentalService) {
+      this.mvIdList = movieService.getMovieIds(); //funkar
+     }
 
   ngOnInit() {
     /* let tempIdList = this.movieService.getMovieList();
@@ -54,15 +57,29 @@ export class HomepageComponent implements OnInit {
        })
        console.log(this.mvList);
      });*/
-    this.getMovie();
+    console.log("get movies is " + this.getMovies());
+
 
   }
+  
 
   onRent(id) {
     this.rentalService.addRental(id);
   }
 
-  getMovie(): void {
+  getMovies(): void {
+
+    this.mvIdList.forEach(id => {
+    this.movieService.getMovies(id)
+    .subscribe(movie => {
+      var a = new appmovie(movie.Poster, movie.imdbID, movie.Title, movie.Year, movie.Genre);
+      //console.log(a);
+      this.mvList.push(a);
+    })});
+    console.log(this.mvList);
+  }
+
+  /*getMovie(): void {
     this.movieService.getMovie(1)
       .subscribe(movie => {
         this.poster1 = movie.Poster
@@ -103,5 +120,5 @@ export class HomepageComponent implements OnInit {
         this.year5 = movie.Year
         this.genre5 = movie.Genre
       });
-  }
+  } */
 }

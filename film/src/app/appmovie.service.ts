@@ -13,21 +13,25 @@ export class movieService {
     private fight = 'http://www.omdbapi.com/?i=tt0137523&apikey=97021fa0';
     private rock = 'http://www.omdbapi.com/?i=tt1727824&apikey=97021fa0';
 
+    private ids = ['tt3896198', 'tt1517451', 'tt0468569', 'tt0137523', 'tt1727824']
 
     constructor(
         private http: HttpClient) {
     }
 
     /** GET movies from the server */
-
     getMovies(imdbid): Observable<appmovie> {
         function fullURL(imdbid) {
-            return 'http://www.omdbapi.com/?i=' + imdbid + '&apikey=97021fa0';
+            return 'http://www.omdbapi.com/?apikey=97021fa0&i=' + imdbid;
         }
+        console.log("in service");
         return this.http.get<appmovie>(fullURL(imdbid))
             .pipe(tap(movies => movies));
     }
-
+    
+    getMovieIds(){
+        return this.ids;
+    }
     getMovie(number): Observable<appmovie> {
         switch (number) {
             case 1:
