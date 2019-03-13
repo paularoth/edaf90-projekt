@@ -2,7 +2,7 @@
   <h1>Top Movies right now</h1>
 </div>
 
-<mat-list *ngFor="let movie of mvList">
+<mat-list *ngFor="let movie of mvList" (click)="onRent(movie.imdbID)">
   <a mat-list-item>
       <img width="150vw" src="{{movie.Poster}}">
       <div class="movie-details">
@@ -10,7 +10,13 @@
 
           <i>{{movie.Genre}}</i> <br />
           <i>50kr</i>
+        
       </div>
+
+      <nav>
+        <a routerLink= "/movie/{{movie.imdbID}}" routerLinkActive="active">Read more</a>
+      </nav>
+
   </a>
 
   

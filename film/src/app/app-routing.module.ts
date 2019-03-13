@@ -6,6 +6,7 @@ import { MovieComponent } from './movie/movie.component';
 import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'homepage', pathMatch: 'full'},
   { path: 'view', component: ViewComponent },
   { path: 'view/:imdb', component: ViewComponent },
   { path: 'homepage', component: HomepageComponent },
