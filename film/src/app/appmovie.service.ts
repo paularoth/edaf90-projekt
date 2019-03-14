@@ -7,13 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class movieService {
-    private guardian = 'http://www.omdbapi.com/?i=tt3896198&apikey=97021fa0';
-    private star = 'http://www.omdbapi.com/?i=tt1517451&apikey=97021fa0';
-    private bat = 'http://www.omdbapi.com/?i=tt0468569&apikey=97021fa0';
-    private fight = 'http://www.omdbapi.com/?i=tt0137523&apikey=97021fa0';
-    private rock = 'http://www.omdbapi.com/?i=tt1727824&apikey=97021fa0';
-
-    private ids = ['tt3896198', 'tt1517451', 'tt0468569', 'tt0137523', 'tt1727824']
+    private ids = ['tt3896198', 'tt1517451', 'tt0468569', 'tt0137523', 'tt1727824', 'tt0071853'];
 
     constructor(
         private http: HttpClient) {
@@ -31,51 +25,5 @@ export class movieService {
     
     getMovieIds(){
         return this.ids;
-    }
-    getMovie(number): Observable<appmovie> {
-        switch (number) {
-            case 1:
-                return this.http.get<appmovie>(this.guardian)
-                    .pipe(tap(movies => movies));
-                break;
-            case 2:
-                return this.http.get<appmovie>(this.fight)
-                    .pipe(tap(movies => movies));
-                break;
-            case 3:
-                return this.http.get<appmovie>(this.bat)
-                    .pipe(tap(movies => movies));
-                break;
-            case 4:
-                return this.http.get<appmovie>(this.rock)
-                    .pipe(tap(movies => movies));
-                break;
-            case 5:
-                return this.http.get<appmovie>(this.star)
-                    .pipe(tap(movies => movies));
-                break;
-
-
-        }
-
-    }
-
-    getMovie2(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.fight)
-            .pipe(tap(movies => movies));
-    }
-
-    getMovie3(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.bat)
-            .pipe(tap(movies => movies));
-    }
-
-    getMovie4(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.rock)
-            .pipe(tap(movies => movies));
-    }
-    getMovie5(): Observable<appmovie> {
-        return this.http.get<appmovie>(this.star)
-            .pipe(tap(movies => movies));
     }
 }

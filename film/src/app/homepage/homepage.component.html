@@ -2,7 +2,7 @@
   <h1>Top Movies right now</h1>
 </div>
 
-<mat-list *ngFor="let movie of mvList" (click)="onRent(movie.imdbID)">
+<mat-list *ngFor="let movie of mvList">
   <a mat-list-item>
       <img width="150vw" src="{{movie.Poster}}">
       <div class="movie-details">
@@ -16,101 +16,10 @@
       <nav>
         <a routerLink= "/movie/{{movie.imdbID}}" routerLinkActive="active">Read more</a>
       </nav>
-
-  </a>
-
-  
-
-</mat-list>
-
-<mat-list>
-  <a mat-list-item> <img width="150vw" src="{{poster1}}">
-
-    <div class="movie-details">
-      <h2>{{title1}} ({{year1}})</h2> <br />
-
-      <i>{{genre1}}</i> <br />
-      <i>50 kr</i>
-    </div>
-
-    <nav>
-      <a [routerLink]="['/movie',id1]" routerLinkActive="active">Read more</a>
-    </nav>
-    <a routerLink='/view' routerLinkActive="active" (click)="onRent(id1)">
-      <button class="button button-rent-movie">Rent movie</button>
-    </a>
-  </a>
-
-  <a mat-list-item><img width="150vw" src="{{poster2}}">
-
-    <div class="movie-details">
-      <h2>{{title2}} ({{year2}})</h2> <br />
-
-      <i>{{genre2}}</i> <br />
-      <i>50 kr</i>
-    </div>
-
-    <nav>
-      <a [routerLink]="['/movie',id2]" routerLinkActive="active">Read more</a>
-    </nav>
-    <a routerLink='/view' routerLinkActive="active" (click)="onRent(id2)">
-      <button class="button button-rent-movie">Rent movie</button>
-    </a>
-  </a>
-
-  <a mat-list-item><img width="150vw" src="{{poster3}}">
-
-    <div class="movie-details">
-      <h2>{{title3}} ({{year3}})</h2> <br />
-
-      <i>{{genre3}}</i> <br />
-      <i>50 kr</i>
-    </div>
-    <nav>
-      <a [routerLink]="['/movie',id3]" routerLinkActive="active">Read more</a>
-    </nav>
-
-    <a routerLink='/view' routerLinkActive="active" (click)="onRent(id3)">
-      <button class="button button-rent-movie">Rent movie</button>
-    </a>
-  </a>
-
-  <a mat-list-item><img width="150vw" src="{{poster4}}">
-
-    <div class="movie-details">
-      <h2>{{title4}} ({{year4}})</h2> <br />
-
-      <i>{{genre4}}</i> <br />
-      <i>50 kr</i>
-    </div>
-
-    <nav>
-      <a [routerLink]="['/movie',id4]" routerLinkActive="active">Read more</a>
-    </nav>
-
-    <a routerLink='/view' routerLinkActive="active" (click)="onRent(id4)">
-      <button class="button button-rent-movie">Rent movie</button>
-    </a>
-  </a>
-
-  <a mat-list-item><img width="150vw" src="{{poster5}}">
-
-    <div class="movie-details">
-      <h2>{{title5}} ({{year5}})</h2> <br />
-
-      <i>{{genre5}}</i> <br />
-      <i>50 kr</i>
-    </div>
-
-    <nav>
-      <a [routerLink]="['/movie',id5]" routerLinkActive="active">Read more</a>
-    </nav>
-
-    <a routerLink='/view' routerLinkActive="active" (click)="onRent(id5)">
-      <button class="button button-rent-movie">Rent movie</button>
-    </a>
+      <a routerLink='/view' routerLinkActive="active" (click)="onRent(movie.imdbID)">
+        <button class="button button-rent-movie">Rent movie</button>
+      </a>
   </a>
 
 </mat-list>
-
 <router-outlet></router-outlet>
